@@ -1,13 +1,13 @@
 public class MyLinkedList {
 	private int size;
 	private Node start, end;
-	
+
 	public MyLinkedList(int length, Node init, Node term) {
 		size = length;
 		start = init;
 		end = term;
 	}
-	
+
 	public int size() {
 		return size;
 	}
@@ -18,11 +18,11 @@ public class MyLinkedList {
 	}
 	public String toString() {
 		Node current = start;
-		String result = "{ "
+		String result = "{ ";
 		while (current.next != null) {
 			result += current + ", ";
 			current = current.next;
 		}
-		result += end + "}"
+		result += end + "}";
 	}
 }
