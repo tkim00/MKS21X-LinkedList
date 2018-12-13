@@ -2,10 +2,10 @@ public class MyLinkedList {
 	private int size;
 	private Node start, end;
 
-	public MyLinkedList(int length, Node init, Node term) {
-		size = length;
-		start = init;
-		end = term;
+	public MyLinkedList() {
+		size = 0;
+		start = null;
+		end = null;
 	}
 
 	public int size() {
