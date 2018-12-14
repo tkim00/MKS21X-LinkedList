@@ -19,10 +19,10 @@ public class MyLinkedList {
 	public String toString() {
 		Node current = start;
 		String result = "{ ";
-		while (current.next != null) {
-			result += current + ", ";
-			current = current.next;
+		while (current.next() != null) {
+			result += current.getData() + ", ";
+			current = current.next();
 		}
-		result += end + "}";
+		result += end.getData() + "}";
 	}
 }
