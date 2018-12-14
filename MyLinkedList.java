@@ -32,4 +32,11 @@ public class MyLinkedList {
 		}
 		result += end.getData() + "}";
 	}
+	private Node getNthNode(int n) {
+		int c = 0;
+		while (current != null) {
+			
+			c++;
+		}
+	}
 }
