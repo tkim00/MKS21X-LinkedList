@@ -12,8 +12,15 @@ public class MyLinkedList {
 		return size;
 	}
 	public boolean add(int value) {
-		Node addition = new Node(end, value, null);
-		end = Node(end.prev, end.data, addition);
+		if (size = 0) {
+			Node addition = new Node(null, value, null);
+			start = addition;
+			end = addition;
+		} else {
+			Node addition = new Node(end, value, null);
+			end = Node(end.prev(), end.getData(), addition);
+			end = addition;
+		}
 		return true;
 	}
 	public String toString() {
