@@ -2,10 +2,10 @@ public class Node {
 	private Integer data;
 	private Node next, prev;
 
-	public Node(Node prev-val, int value, Node next-val) {
+	public Node(int value) {
 		data = value;
-		prev = prev-val;
-		next = next-val;
+		prev = null;
+		next = null;
 	}
 
 	public Node next() {

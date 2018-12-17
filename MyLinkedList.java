@@ -13,12 +13,13 @@ public class MyLinkedList {
 	}
 	public boolean add(int value) {
 		if (size = 0) {
-			Node addition = new Node(null, value, null);
+			Node addition = new Node(value);
 			start = addition;
 			end = addition;
 		} else {
-			Node addition = new Node(end, value, null);
-			end = Node(end.prev(), end.getData(), addition);
+			Node addition = new Node(value);
+			addition.setPrev(end);
+			end.setNext(addition);
 			end = addition;
 		}
 		return true;
@@ -33,10 +34,10 @@ public class MyLinkedList {
 		result += end.getData() + "}";
 	}
 	private Node getNthNode(int n) {
-		int c = 0;
-		while (current != null) {
-			
-			c++;
+		Node current = start;
+		for (int c = 0; c < n; c++) {
+			current = current.next();
 		}
+		return current;
 	}
 }
