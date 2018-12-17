@@ -24,7 +24,9 @@ public class Node {
 		return data;
 	}
 	public Integer setData(Integer i) {
+		Integer x = data;
 		data = i;
+		return x;
 	}
 	public String toString() {
 		return "" + data;
