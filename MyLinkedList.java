@@ -12,16 +12,16 @@ public class MyLinkedList {
 		return size;
 	}
 	public boolean add(int value) {
+		Node addition = new Node(value);
 		if (size = 0) {
-			Node addition = new Node(value);
 			start = addition;
 			end = addition;
 		} else {
-			Node addition = new Node(value);
 			addition.setPrev(end);
 			end.setNext(addition);
 			end = addition;
 		}
+		size++;
 		return true;
 	}
 	public String toString() {
@@ -45,9 +45,15 @@ public class MyLinkedList {
 
 
 	public Integer get(int index) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("index is out of range");
+		}
 		return getNthNode(index).getData();
 	}
 	public Integer set(int index, Integer value) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("index is out of range");
+		}
 		getNthNode(index).setData(value);
 	}
 	public boolean contains(Integer value) {
@@ -60,5 +66,30 @@ public class MyLinkedList {
 		}
 		return false;
 	}
-	
+	public int indexOf(Integer value) {
+		Node current = start;
+		int c = 0;
+		while (current != null) {
+			if (current.getData() == value) {
+				return c;
+			}
+			c++;
+		}
+		return -1;
+	}
+	public void add(int index, Integer value) {
+		if (index < 0 || index > size()) {
+			throw new IndexOutOfBoundsException("index is out of range");
+		}
+		Node addition = new Node(value);
+		getNthNode(index).prev() = addition;
+		addition.next() = getNthNode(index);
+		if (index != 0) {
+			getNthNode(index-1).next() == addition;
+			addition.prev() = getNthNode(index-1);
+		} else {
+			start = addition;
+		}
+		size++;
+	}
 }
