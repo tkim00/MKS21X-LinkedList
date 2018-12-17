@@ -58,6 +58,7 @@ public class MyLinkedList {
 			}
 			current = current.next();
 		}
+		return false;
 	}
-	return false;
+	
 }
