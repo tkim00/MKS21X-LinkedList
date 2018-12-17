@@ -33,6 +33,8 @@ public class MyLinkedList {
 		}
 		result += end.getData() + "}";
 	}
+
+
 	private Node getNthNode(int n) {
 		Node current = start;
 		for (int c = 0; c < n; c++) {
@@ -40,4 +42,22 @@ public class MyLinkedList {
 		}
 		return current;
 	}
+
+
+	public Integer get(int index) {
+		return getNthNode(index).getData();
+	}
+	public Integer set(int index, Integer value) {
+		getNthNode(index).setData(value);
+	}
+	public boolean contains(Integer value) {
+		Node current = start;
+		while (current != null) {
+			if (current.getData() == value) {
+				return true;
+			}
+			current = current.next();
+		}
+	}
+	return false;
 }
