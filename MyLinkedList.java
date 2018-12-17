@@ -36,6 +36,9 @@ public class MyLinkedList {
 
 
 	private Node getNthNode(int n) {
+		if (n < 0 || n >= size) {
+			return null;
+		}
 		Node current = start;
 		for (int c = 0; c < n; c++) {
 			current = current.next();
@@ -82,14 +85,44 @@ public class MyLinkedList {
 			throw new IndexOutOfBoundsException("index is out of range");
 		}
 		Node addition = new Node(value);
-		getNthNode(index).prev() = addition;
-		addition.next() = getNthNode(index);
+		if (index != size()) {
+			getNthNode(index).setPrev(addition);
+			addition.setNext(getNthNode(index));
+		}
 		if (index != 0) {
-			getNthNode(index-1).next() == addition;
-			addition.prev() = getNthNode(index-1);
+			getNthNode(index-1).setNext(addition);
+			addition.setPrev(getNthNode(index-1));
 		} else {
 			start = addition;
 		}
 		size++;
+	}
+	public Integer remove(int index) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("index is out of range");
+		}
+		Integer x = getNthNode(index);
+		if (index != 0) {
+			getNthNode(index-1).setNext(getNthNode(index+1));
+		}
+		if (index != size()-1) {
+			getNthNode(index+1).setPrev(getNthNode(index-1));
+		}
+		size--;
+		return x;
+	}
+	public boolean remove(Integer value) {
+		int index = indexOf(value);
+		if (index == -1) {
+			return false;
+		}
+		if (index != 0) {
+			getNthNode(index-1).setNext(getNthNode(index+1));
+		}
+		if (index != size()-1) {
+			getNthNode(index+1).setPrev(getNthNode(index-1));
+		}
+		size--;
+		return true;
 	}
 }
