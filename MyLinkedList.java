@@ -26,14 +26,17 @@ public class MyLinkedList {
 	}
 	public String toString() {
 		Node current = start;
+		//Node current = end;
 		String result = "[";
 		while (current != null) {
 			//System.out.println("success");
 			result += current.getData();
 			if (current.next() != null) {
+			//if (current.prev() != null) {
 				result+=", ";
 			}
 			current = current.next();
+			//current = current.prev();
 		}
 		result += "]";
 		return result;
@@ -136,4 +139,14 @@ public class MyLinkedList {
 		size--;
 		return true;
 	}
+	public void extend(MyLinkedList other){
+    //in O(1) runtime, move the elements from other onto the end of this
+    //The size of other is reduced to 0
+    //The size of this is now the combined sizes of both original lists
+		end.setNext(other.start);
+		other.start.setPrev(end);
+		end = other.end;
+		size += other.size();
+		other.size = 0;
+  }
 }
